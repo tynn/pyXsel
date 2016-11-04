@@ -64,13 +64,13 @@ def get(selection=PRIMARY):
         buf, buf_len = c_char_p(), c_ulong()
 
         targets = [(Xmu.XmuInternAtom(display, _XA_UTF8_STRING), 'utf8'),
-                   (31, 'latin1')]
+                   (31, 'latin1')] #XA_STRING
         event = XEvent()
         for target, enc in targets:
             X11.XConvertSelection(display, selection, target, prop, window, 0)
 
             event.type = 0
-            while event.type != 31:
+            while event.type != 31: #SelectionNotify
                 X11.XNextEvent(display, byref(event))
 
             if event.xselection.property != 0:

@@ -14,18 +14,45 @@
 #
 #  You should have received a copy of the GNU Lesser General Public License
 #  along with pyXsel.  If not, see <http://www.gnu.org/licenses/>.
-"""long_description"""
+
+"""
+pyXsel
+======
+Get the X11 selection value::
+
+    >>> xsel.get(selection=xsel.PRIMARY)
+    'str value of the selection or ""'
+
+Predefined selections are ``PRIMARY``, ``SECONDARY`` and ``CLIPBOARD``.
+"""
+
 try:
     from setuptools import setup
 except ImportError:
     from distutils.core import setup
-setup(name='pyXsel',
-      version='1.0',
-      platforms=['Linux'],
-      author="Christian Schmitz",
-      author_email="tynn.dev@gmail.com",
-      license='LGPLv3+',
-      url="https://github.com/tynn/pyXsel",
-      description="Get the X11 selection value",
-      py_modules=['xsel'],
-      long_description=__doc__)
+
+setup(
+    name            ='pyXsel',
+    version         ='1.0',
+    description     ="Get the X11 selection value",
+    long_description=__doc__,
+    author          ="Christian Schmitz",
+    author_email    ="tynn.dev@gmail.com",
+    url             ="https://github.com/tynn/pyXsel",
+    license         ='LGPLv3+',
+    py_modules      =['xsel'],
+    platforms       =['Linux'],
+    classifiers     =[
+        'Development Status :: 4 - Beta',
+        'Intended Audience :: Developers',
+        'License :: OSI Approved :: '
+            'GNU Lesser General Public License v3 or later (LGPLv3+)',
+        'Natural Language :: English',
+        'Operating System :: POSIX :: Linux',
+        "Programming Language :: Python :: 2",
+        'Programming Language :: Python :: 2.7',
+        'Programming Language :: Python :: 3',
+        'Programming Language :: Python :: 3.3',
+        'Programming Language :: Python :: 3.4',
+        'Programming Language :: Python :: 3.5',
+    ])
